@@ -1,0 +1,332 @@
+//FONTS
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+$font-raleway : 'Raleway';
+
+//COLORS
+$blue-primary   : #2A63F3;
+$blue-secondary : #E0EBFD;
+$grey-background : #F2F2F2;
+$grey-stars     : #D9D9D9;
+
+//BREAKPOINTS
+$large-screens      : 'screen and (min-width: 1440px)';
+$dekstop-screens    : 'screen and (min-width: 1439px)';
+$tablet-screens     : 'screen and (min-width: 840px)';
+//$mobile-screens     : 'screen and (min-width: 600px)';
+
+
+/*******************************************
+                GENERAL
+*******************************************/
+body{
+    font-family: $font-raleway, sans-serif;
+    margin: 0;
+    font-family: $font-raleway;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: 23px;
+}
+
+h2{
+    font-size: 25px;
+}
+
+h3{
+    font-size: 15px;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+.bold-text{
+    font-weight: 600;
+}
+
+.normal-text{
+    font-size: 15px;
+}
+
+span{
+    @extend .bold-text;
+}
+
+.fa-star{
+    font-size: 10px;
+    color: $blue-primary;
+    &.grey-star{
+        color: $grey-stars;
+    }
+}
+
+/*******************************************
+                HEADER
+*******************************************/
+
+header{
+    #header-desktop{
+        display: none;
+    }
+    #header-mobile{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        div{
+            padding: 20px 10px 10px 10px;
+            display: flex;
+            justify-content: space-between;
+            p{
+                font-weight: 600;
+                color: $blue-primary;
+            }
+        }
+        nav{
+            display: flex;
+            p{
+                width: 50%;
+                padding-bottom: 15px;
+                text-align: center;
+                border-bottom: 3px solid #F1F1F1;
+                &.active{
+                    color: $blue-primary;
+                    border-bottom: 3px solid $blue-primary;
+                }
+            }
+        }
+    }
+}
+
+/*******************************************
+        SECTION RECHERCHE ET FILTRES
+*******************************************/
+
+.search-and-filters{
+    padding: 0 20px 0 20px;
+    .search{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        .fa-map-marker-alt{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background-color: #F2F2F2;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-top: 1px solid #F2F2F2;
+            border-bottom: 1px solid #F2F2F2;
+        }
+        input{
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #F2F2F2;
+            border-bottom: 1px solid #F2F2F2;
+            position: absolute;
+            top: 0;
+            left: 42px;
+            height: 100%;
+            width: 73%;
+            z-index: 0;
+            padding-left: 15px;
+            font-size: 15px;
+            font-family: $font-raleway;
+            &::placeholder{
+                @extend .bold-text;
+                color: #000000;
+                opacity: 1;
+                font-size: 15px;
+                font-family: $font-raleway;
+            }
+        }
+        #small-screen-btn{
+            border-radius: 15px;
+            background-color: $blue-primary;
+            border: none;
+            width: 48px;
+            z-index: 1;
+            .fa-search{
+                color: #ffffff;
+                font-size: 15px;
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        #big-screen-btn{
+            display: none;
+        }
+    }
+    .filters{
+        display: flex;
+        flex-direction: column;
+        >p{
+            @extend .bold-text;
+        }
+        .filters-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            > div{
+                display: flex;
+                margin-bottom: 10px;
+                position: relative;
+                .icon-container{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 43px;
+                    height: 43px;
+                    border-radius: 100%;
+                    background-color: $blue-secondary;
+                    position: absolute;
+                    left: -2px;
+                    i{
+                        color: $blue-primary;
+                    }
+                }
+                button{
+                    padding: 10px 10px 10px 50px;
+                    border-top: 2px solid #d8d9d8;
+                    border-right: 2px solid #d8d9d8;
+                    border-bottom: 2px solid #d8d9d8;
+                    border-left: none;
+                    background-color: transparent;
+                    border-radius: 20px;
+                    font-size: 15px;
+                    @extend .bold-text;
+                    font-family: $font-raleway;
+                }
+            }
+        }
+        > div:last-child{
+            display: flex;
+            align-items: baseline;
+            margin: 20px 0 20px 0;
+            i{
+                color: $blue-primary;
+                font-size: 10px;
+                height: 10px;
+                &::before{
+                    padding: 5px 8px 5px 8px;
+                    border: 1px solid #dcdddc;
+                    border-radius: 100%;
+                }
+            }
+            p{
+                margin: 0 0 0 10px;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+/*******************************************
+            SECTION HEBERGEMENTS
+*******************************************/
+.populaires{
+    background-color: $grey-background;
+    padding: 20px;
+    >div{
+        display: flex;
+        &:first-child{
+            align-items: center;
+            justify-content: space-between;
+        }
+        .fa-chart-line{
+            font-size: 20px;
+        }
+    }
+    .populaire-card{
+        background-color: #ffffff;
+        border: 3px solid #fff;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.03);
+        align-items: flex-start;
+        >div:first-child{
+            overflow: hidden;
+            img{
+                max-width: 214px;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+            }
+        }
+        >div:last-child{
+            padding-left: 10px;
+            width: 79%;
+            p{
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+.marseille{
+    padding: 20px;
+    .hebergements-container{
+        .hebergement-card{
+            border: 3px solid #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.03);
+            margin-bottom: 15px;
+            >div:first-child{
+                overflow: hidden;
+                height: 125px;
+            }
+            >div:last-child{
+                padding: 10px;
+            }
+            h3, p{
+                margin: 0;
+            }
+            img{
+                max-width: 100%;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+        }
+    }
+    >p{
+        @extend .bold-text;
+    }
+}
+
+.activites{
+    padding: 20px;
+    .activites-container{
+        border-radius: 20px;
+        box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.03);
+        >div{
+            overflow: hidden;
+            height: 120px;
+        }
+        img{
+            max-width: 100%;
+            border-radius: 20px;
+        }
+        p{
+            @extend .bold-text;
+            padding-left: 20px;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+footer{
+    background-color: $grey-background;
+    padding: 20px;
+    h3{
+        font-size: 18px;
+    }
+    li{
+        margin-bottom: 10px;
+    }
+}
